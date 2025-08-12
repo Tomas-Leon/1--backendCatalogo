@@ -1,0 +1,13 @@
+{
+  "name": "1--backendcatalogo",
+  "version": "1.0.0",
+  "description": "Backend de catalogos de productos de una cafeteria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Tomas Leon",
+  "license": "ISC",
+  "type": "module"
+}
