@@ -36,9 +36,8 @@ const productoSchema = new Schema({
     required: true,
     validate: {
       validator: (valor) => {
-        return /^(https?:\/\/?([\da-z\-]+)\([a-z\.}]{2,6})([\/\w \-]*)*\/?(jpg|jpeg|png|webg))$/.test(
-          valor
-        );
+        return /^(https?:\/\/[\da-z\-\.]+\.[a-z]{2,6}(\/[\w\-]*)*\.(jpg|jpeg|png|webp))$/i.test(valor);
+
       },
     },
   },
