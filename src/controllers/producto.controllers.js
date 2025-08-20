@@ -19,7 +19,7 @@ export const crearProducto = async (req, res)=>{
     }
 }
 
-export const obtenerProducto = async (req, res)=>{
+export const obtenerProductos = async (req, res)=>{
     try{
         //1- buscar los productos en la BD
         const listaProductos = await Producto.find();
@@ -28,5 +28,21 @@ export const obtenerProducto = async (req, res)=>{
     }catch(error){
         console.error(error)
         res.status(500).json({mensaje: "Error obtener los productos" })
+    }
+}
+
+export const obtenerProductoPorId = async (req, res)=>{
+    try {
+        //1- buscar el producto por el campo del id
+        const productoBuscado = await Producto.findById(req.params.id);
+        //2- chekear que encontre el producto con un codigo de error
+        if(!productoBuscado){
+            res.status(404).json({mensaje: "Producto no encontrado" })
+        } 
+        //3- envial el producto en la respuesta
+        res.status(200).json(productoBuscado)
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({mensaje: "Error obtener el producto por id" })
     }
 }
