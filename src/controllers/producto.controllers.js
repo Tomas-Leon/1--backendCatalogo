@@ -18,3 +18,15 @@ export const crearProducto = async (req, res)=>{
         res.status(500).json({mensaje: "Error al crear el producto" })
     }
 }
+
+export const obtenerProducto = async (req, res)=>{
+    try{
+        //1- buscar los productos en la BD
+        const listaProductos = await Producto.find();
+        res.status(201).json(listaProductos);
+        //2- responder con el status adecuado 200 y devolver los productos
+    }catch(error){
+        console.error(error)
+        res.status(500).json({mensaje: "Error obtener los productos" })
+    }
+}
